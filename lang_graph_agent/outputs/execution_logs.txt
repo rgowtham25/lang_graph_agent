@@ -1,0 +1,32 @@
+Agent start: INTAKE -> COMPLETE
+=== Stage: INTAKE (mode=deterministic) ===
+[COMMON] accept_payload: captured initial payload
+=== Stage: UNDERSTAND (mode=deterministic) ===
+[COMMON] parse_request_text: tokens=['my', 'internet', 'is', 'not', 'working', 'since']...
+[ATLAS] extract_entities: product=internet
+=== Stage: PREPARE (mode=deterministic) ===
+[COMMON] normalize_fields: priority=high
+[ATLAS] enrich_records: sla=4h, history_count=2
+[COMMON] add_flags_calculations: sla_risk=0.7
+=== Stage: ASK (mode=deterministic) ===
+[ATLAS] clarify_question: requested location from customer
+=== Stage: WAIT (mode=deterministic) ===
+[ATLAS] extract_answer: captured customer reply 'Bengaluru'
+[COMMON] store_answer: stored answer: Bengaluru
+=== Stage: RETRIEVE (mode=deterministic) ===
+[ATLAS] knowledge_base_search: found KB-2001
+[COMMON] store_data: KB result attached to payload
+=== Stage: DECIDE (mode=nondeterministic) ===
+[COMMON] solution_evaluation: score=95
+[ATLAS] escalation_decision: escalated=False (score=95)
+[COMMON] update_payload: decisions updated {'escalated': False, 'score': 95}
+=== Stage: UPDATE (mode=deterministic) ===
+[ATLAS] update_ticket: status=resolving
+[ATLAS] close_ticket: ticket closed as resolved
+=== Stage: CREATE (mode=deterministic) ===
+[COMMON] response_generation: drafted customer reply
+=== Stage: DO (mode=deterministic) ===
+[ATLAS] execute_api_calls: actions=['remote_line_reset']
+[ATLAS] trigger_notifications: customer notified via email
+=== Stage: COMPLETE (mode=deterministic) ===
+[COMMON] output_payload: finalized payload ready

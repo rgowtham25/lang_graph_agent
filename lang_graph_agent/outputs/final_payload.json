@@ -1,0 +1,61 @@
+{
+  "customer_name": "Alice Johnson",
+  "email": "alice@example.com",
+  "query": "My internet is not working since morning.",
+  "priority": "high",
+  "ticket_id": "TCK12345",
+  "status": "resolved",
+  "tokens": [
+    "my",
+    "internet",
+    "is",
+    "not",
+    "working",
+    "since",
+    "morning"
+  ],
+  "product": "internet",
+  "sla": "4h",
+  "history": [
+    {
+      "ticket_id": "HIST1001",
+      "status": "resolved"
+    },
+    {
+      "ticket_id": "HIST1002",
+      "status": "resolved"
+    }
+  ],
+  "sla_risk": 0.7,
+  "ask_prompt": "Could you share your location (city) so we can troubleshoot network availability?",
+  "ask_answer": "Bengaluru",
+  "location": "Bengaluru",
+  "answers": [
+    "Bengaluru"
+  ],
+  "kb_result": {
+    "article_id": "KB-2001",
+    "title": "Internet down / Router troubleshooting",
+    "solution": "Restart your router: power off for 30 seconds, then power on; check cables and LEDs."
+  },
+  "retrievals": [
+    {
+      "article_id": "KB-2001",
+      "title": "Internet down / Router troubleshooting",
+      "solution": "Restart your router: power off for 30 seconds, then power on; check cables and LEDs."
+    }
+  ],
+  "solution_score": 95,
+  "escalated": false,
+  "decisions": [
+    {
+      "escalated": false,
+      "score": 95
+    }
+  ],
+  "response_text": "Hi Alice Johnson, based on our checks, please try: Restart your router: power off for 30 seconds, then power on; check cables and LEDs.",
+  "api_actions": [
+    "remote_line_reset"
+  ],
+  "notification_sent": true
+}
